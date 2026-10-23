@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inara Scents | Bath & Body Works Reseller</title>
+  <meta name="description" content="Inara Scents - your trusted reseller of Bath & Body Works perfumes, candles, sanitizers, shampoo and lotions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Inara Scents home">
+        <img src="logo.png" alt="Inara Scents logo" class="brand-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+        <span class="brand-text" style="display:none;">Inara Scents</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#shop">Shop</a>
+        <a href="#how">How to Order</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+          🛍️ <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <div class="account" id="accountArea">
+          <button class="btn btn-small" id="loginBtn">Login / Sign up</button>
+          <div class="user-menu hidden" id="userMenu">
+            <button class="btn btn-small btn-outline" id="userBtn">Hi, <span id="userName"></span> ▾</button>
+            <div class="dropdown hidden" id="userDropdown">
+              <button id="ordersBtn">📦 My Orders</button>
+              <button id="logoutBtn">🚪 Log out</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Authentic Bath &amp; Body Works • Since 2024</p>
+          <h1>Find the scent that feels <span class="script">like you.</span></h1>
+          <p class="lead">Perfumes, candles, sanitizers, shampoo and lotions from your favorite Bath &amp; Body Works collections, delivered to your door by Inara Scents.</p>
+          <div class="hero-buttons">
+            <a href="#shop" class="btn">Shop now</a>
+            <a href="#how" class="btn btn-outline">How to order</a>
+          </div>
+          <ul class="hero-badges">
+            <li>✔ 100% authentic</li>
+            <li>✔ Carefully packed</li>
+            <li>✔ Cash on delivery or GCash</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="hero-card c1">🌸<span>Perfumes</span></div>
+          <div class="hero-card c2">🕯️<span>Candles</span></div>
+          <div class="hero-card c3">🧼<span>Sanitizers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SHOP ============ -->
+    <section class="section" id="shop">
+      <div class="container">
+        <h2 class="section-title">Shop our <span class="script">scents</span></h2>
+        <p class="section-sub">Sort by category, search by name, or arrange by price.</p>
+
+        <div class="category-tabs" id="categoryTabs" role="tablist">
+          <button class="tab active" data-cat="all">All</button>
+          <button class="tab" data-cat="perfume">🌸 Perfumes</button>
+          <button class="tab" data-cat="candle">🕯️ Scented Candles</button>
+          <button class="tab" data-cat="sanitizer">🧼 Sanitizers</button>
+          <button class="tab" data-cat="shampoo">🚿 Shampoo &amp; Body Wash</button>
+          <button class="tab" data-cat="lotion">🧴 Body Lotions</button>
+        </div>
+
+        <div class="toolbar">
+          <input type="search" id="searchInput" placeholder="Search scents (e.g. vanilla, cherry)…" />
+          <label class="sort-label">
+            Sort by
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A – Z</option>
+              <option value="name-desc">Name: Z – A</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="result-count" id="resultCount"></p>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="empty hidden" id="emptyMsg">No products found. Try a different search or category.</p>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO ORDER ============ -->
+    <section class="section section-alt" id="how">
+      <div class="container">
+        <h2 class="section-title">How to <span class="script">order</span></h2>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><h3>Create an account</h3><p>Sign up with your email so we can save your cart and orders.</p></div>
+          <div class="step"><span class="step-num">2</span><h3>Add to cart</h3><p>Browse perfumes, candles, sanitizers, shampoo and lotions, then add your favorites.</p></div>
+          <div class="step"><span class="step-num">3</span><h3>Check out</h3><p>Enter your delivery details and pick Cash on Delivery or GCash.</p></div>
+          <div class="step"><span class="step-num">4</span><h3>We deliver</h3><p>We confirm your order by message and ship it to you.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2 class="section-title left">About <span class="script">Inara Scents</span></h2>
+          <p>Inara Scents is a small, passion-driven business that started in 2024. We resell authentic Bath &amp; Body Works products so that more people can enjoy their favorite fragrances without flying overseas.</p>
+          <p>Every order is checked, wrapped and packed with care. Whether you are treating yourself or shopping for a gift, we are here to help you pick the perfect scent.</p>
+        </div>
+        <div class="about-cards">
+          <div class="mini-card"><strong>Authentic</strong><span>Genuine Bath &amp; Body Works items only</span></div>
+          <div class="mini-card"><strong>Small business</strong><span>Personal service on every order</span></div>
+          <div class="mini-card"><strong>Gift ready</strong><span>Ask us about gift wrapping</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title left">Get in <span class="script">touch</span></h2>
+          <p>Questions about a scent or your order? Message us anytime.</p>
+          <ul class="contact-list">
+            <li>📱 Mobile: <strong>0927 462 0743</strong></li>
+            <li>📘 Facebook: <strong>Inara Scents</strong></li>
+            <li>✉️ Email: <strong>inarascents@gmail.com</strong></li>
+          </ul>
+        </div>
+        <form class="card form" id="contactForm" novalidate>
+          <h3>Send us a message</h3>
+          <input type="text" id="contactName" placeholder="Your name" required />
+          <input type="email" id="contactEmail" placeholder="Your email" required />
+          <textarea id="contactMsg" rows="4" placeholder="Your message" required></textarea>
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-note" id="contactNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">Inara Scents</p>
+      <p>Independent reseller. Bath &amp; Body Works is a trademark of its respective owner; Inara Scents is not affiliated with the brand.</p>
+      <p>© <span id="year"></span> Inara Scents. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ AUTH MODAL ============ -->
+  <div class="modal hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <h3 id="authTitle">Welcome back</h3>
+      <p class="auth-hint hidden" id="authHint"></p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-mode="login">Login</button>
+        <button class="auth-tab" data-mode="signup">Create account</button>
+      </div>
+
+      <form id="loginForm" class="form" novalidate>
+        <label>Email<input type="email" id="loginEmail" autocomplete="email" required /></label>
+        <label>Password<input type="password" id="loginPassword" autocomplete="current-password" required /></label>
+        <p class="form-error" id="loginError"></p>
+        <button class="btn btn-block" type="submit">Login</button>
+      </form>
+
+      <form id="signupForm" class="form hidden" novalidate>
+        <label>Full name<input type="text" id="signupName" autocomplete="name" required /></label>
+        <label>Email<input type="email" id="signupEmail" autocomplete="email" required /></label>
+        <label>Password <small>(at least 6 characters)</small><input type="password" id="signupPassword" autocomplete="new-password" required /></label>
+        <label>Confirm password<input type="password" id="signupConfirm" autocomplete="new-password" required /></label>
+        <p class="form-error" id="signupError"></p>
+        <button class="btn btn-block" type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="overlay hidden" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your cart</h3>
+      <button class="modal-close static" id="cartClose" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="totals">
+        <div><span>Subtotal</span><span id="subtotal">₱0</span></div>
+        <div><span>Shipping</span><span id="shipping">₱0</span></div>
+        <div class="grand"><span>Total</span><span id="grandTotal">₱0</span></div>
+      </div>
+      <p class="ship-note" id="shipNote"></p>
+      <button class="btn btn-block" id="checkoutBtn">Proceed to checkout</button>
+    </div>
+  </aside>
+
+  <!-- ============ CHECKOUT MODAL ============ -->
+  <div class="modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-box wide">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div id="checkoutView">
+        <h3 id="checkoutTitle">Checkout</h3>
+        <div class="checkout-grid">
+          <form id="checkoutForm" class="form" novalidate>
+            <label>Full name<input type="text" id="coName" required /></label>
+            <label>Mobile number<input type="tel" id="coPhone" placeholder="09xx xxx xxxx" required /></label>
+            <label>Delivery address<textarea id="coAddress" rows="3" placeholder="House no., street, barangay, city, province" required></textarea></label>
+            <fieldset>
+              <legend>Payment method</legend>
+              <label class="radio"><input type="radio" name="payment" value="Cash on Delivery" checked /> Cash on Delivery</label>
+              <label class="radio"><input type="radio" name="payment" value="GCash" /> GCash (we'll send payment details)</label>
+              <label class="radio"><input type="radio" name="payment" value="Bank Transfer" /> Bank Transfer</label>
+            </fieldset>
+            <label>Notes <small>(optional)</small><textarea id="coNotes" rows="2" placeholder="Gift wrap, preferred delivery time…"></textarea></label>
+            <p class="form-error" id="checkoutError"></p>
+            <button class="btn btn-block" type="submit">Place order</button>
+          </form>
+
+          <div class="summary card">
+            <h4>Order summary</h4>
+            <div id="summaryItems"></div>
+            <div class="totals">
+              <div><span>Subtotal</span><span id="sumSubtotal">₱0</span></div>
+              <div><span>Shipping</span><span id="sumShipping">₱0</span></div>
+              <div class="grand"><span>Total</span><span id="sumTotal">₱0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="successView" class="success hidden">
+        <div class="success-icon">🎉</div>
+        <h3>Thank you for your order!</h3>
+        <p>Your order <strong id="successId"></strong> has been placed. We'll message you shortly to confirm the details.</p>
+        <button class="btn" id="successDone">Continue shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRODUCT ZOOM POPUP ============ -->
+  <div class="modal hidden" id="productModal" role="dialog" aria-modal="true" aria-labelledby="zoomName">
+    <div class="modal-box zoom-box">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div class="zoom-pic pimg" id="zoomPic"></div>
+      <div class="zoom-info">
+        <span class="pcat" id="zoomCat"></span>
+        <h3 id="zoomName"></h3>
+        <p id="zoomDesc"></p>
+        <p class="zoom-price" id="zoomPrice"></p>
+        <button class="btn btn-block" id="zoomAddBtn">Add to cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ORDERS MODAL ============ -->
+  <div class="modal hidden" id="ordersModal" role="dialog" aria-modal="true" aria-labelledby="ordersTitle">
+    <div class="modal-box wide">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <h3 id="ordersTitle">My orders</h3>
+      <div id="ordersList"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
